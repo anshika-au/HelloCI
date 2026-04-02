@@ -6,5 +6,11 @@ pipeline {
         checkout scm
       }
     }
+  
+    stage('Lint') {
+      steps {
+        sh bundle exec fastlane lint
+      }
+    }
   }
 }
