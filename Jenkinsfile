@@ -3,7 +3,7 @@ pipeline {
   
   stages {
     stage('Hello Jenkins') {
-      step {
+      steps {
       echo "Setting up successful"
 
       }
