@@ -1,5 +1,5 @@
 pipeline {
-  agent { label 'Built-In Node' }
+  agent { label 'Mac-mini-slave' }
   
   stages {
     stage('Hello Jenkins') {
