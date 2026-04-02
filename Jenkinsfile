@@ -5,6 +5,7 @@ pipeline {
     stage {
       step {
       echo "Setting up successful"
+
       }
     }
   }
