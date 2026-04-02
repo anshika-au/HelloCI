@@ -13,7 +13,9 @@ pipeline {
   
     stage('Lint') {
       steps {
-        sh 'fastlane lint'
+        dir('HelloCI') { 
+          sh 'fastlane lint'
+        }
       }
     }
   }
