@@ -9,7 +9,7 @@ pipeline {
   
     stage('Lint') {
       steps {
-        sh bundle exec fastlane lint
+        sh 'bundle exec fastlane lint'
       }
     }
   }
