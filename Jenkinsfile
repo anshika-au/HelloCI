@@ -1,10 +1,9 @@
 pipeline {
-  agent { label 'mac-mini-slave' }
-  
+  agent { label 'Mac-mini-slave' }
   stages {
-    stage {
-      step {
-      echo "Setting up"
+    stage('Git Checkout') {
+      steps {
+        checkout scm
       }
     }
   }
