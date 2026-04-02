@@ -16,15 +16,25 @@
 default_platform(:ios)
 
 platform :ios do
-  desc "Build on simulator"
-  lane :build_for_sim do
-    build_ios_app(
-        scheme: "HelloCI",
-        sdk: "iphonesimulator",          # Required for simulator builds
-        destination: "generic/platform=iOS Simulator",
-        skip_package_ipa: true,          # Simulators use .app, not .ipa
-        skip_archive: true,              # Speeds up the process for local testing
-        output_directory: "./build"
-    )
-  end
+    desc "Build on simulator"
+    lane :build_for_sim do
+        build_ios_app(
+            scheme: "HelloCI",
+            sdk: "iphonesimulator",          # Required for simulator builds
+            destination: "generic/platform=iOS Simulator",
+            skip_package_ipa: true,          # Simulators use .app, not .ipa
+            skip_archive: true,              # Speeds up the process for local testing
+            output_directory: "./build"
+        )
+    end
+    
+    desc "Static code analysis report generated"
+    lane :lint do
+        swiftlint(
+            mode: :lint,
+            executable: "swiftlint",
+            output_file: "SwiftLint-report.html",
+            ignore_exit_status: true
+        )
+    end
 end
