@@ -8,6 +8,10 @@ xcuserdata/
 ## Obj-C/Swift specific
 *.hmap
 
+# OS X temporary files
+.DS_Store
+**/.DS_Store
+
 ## App packaging
 *.ipa
 *.dSYM.zip
@@ -58,5 +62,15 @@ Carthage/Build/
 
 fastlane/report.xml
 fastlane/Preview.html
+fastlane/README.md
 fastlane/screenshots/**/*.png
 fastlane/test_output
+
+# Build and CI artifacts
+*.jar
+agent.jar
+
+# Xcode personal settings (Keep shared data like xcshareddata/)
+# Do NOT ignore HelloCI.xcodeproj/xcshareddata/
+xcuserdata/
+
