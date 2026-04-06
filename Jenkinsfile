@@ -16,5 +16,11 @@ pipeline {
         sh 'fastlane lint'
       }
     }
+
+    stage('Build') {
+      steps {
+        sh 'fastlane build'
+      }
+    }
   }
 }
