@@ -1,8 +1,8 @@
 pipeline {
   agent { label 'Mac-mini-slave' }
   environment {
-    // 1. Force the PATH to include common Mac tool locations
     PATH = "/usr/local/bin:/opt/homebrew/bin:/usr/bin:/bin:/usr/sbin:/sbin:${env.PATH}"
+    CI = 'true' // Added this to prevent interactive prompts
   }
   stages {
     stage('Git Checkout') {
@@ -13,13 +13,28 @@ pipeline {
   
     stage('Lint') {
       steps {
-        sh 'fastlane lint'
+        // Step into the folder where the 'fastlane' folder lives
+        dir('HelloCI') {
+          sh 'fastlane lint'
+        }
       }
     }
 
     stage('Build') {
       steps {
-        sh 'fastlane build'
+        // Step into the folder where 'HelloCI.xcodeproj' lives
+        dir('HelloCI') {
+          sh 'fastlane build'
+        }
+      }
+    }
+    
+    stage('test') {
+      steps {
+        // Step into the folder where 'HelloCI.xcodeproj' lives
+        dir('HelloCI') {
+          sh 'fastlane test'
+        }
       }
     }
   }
