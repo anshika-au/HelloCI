@@ -20,6 +20,7 @@ platform :ios do
     lane :build do
         build_ios_app(
             scheme: "HelloCI",
+            project: "HelloCI.xcodeproj",
             sdk: "iphonesimulator",          # Required for simulator builds
             destination: "generic/platform=iOS Simulator",
             skip_package_ipa: true,          # Simulators use .app, not .ipa
