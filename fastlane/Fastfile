@@ -17,7 +17,7 @@ default_platform(:ios)
 
 platform :ios do
     desc "Build on simulator"
-    lane build do
+    lane :build do
         build_ios_app(
             scheme: "HelloCI",
             sdk: "iphonesimulator",          # Required for simulator builds
