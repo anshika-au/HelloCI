@@ -28,5 +28,14 @@ pipeline {
         }
       }
     }
+    
+    stage('test') {
+      steps {
+        // Step into the folder where 'HelloCI.xcodeproj' lives
+        dir('HelloCI') {
+          sh 'fastlane test'
+        }
+      }
+    }
   }
 }
